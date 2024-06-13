@@ -1,0 +1,128 @@
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  background-color: #eff1f7;
+  font-family: sans-serif;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #f44250;
+}
+
+ul,
+li,
+p {
+  background-color: unset;
+}
+
+/* Login CSS START */
+
+.login-container {
+  background-color: white;
+  padding: 30px 50px;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -141px -168px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 250px;
+}
+
+.login-container input {
+  display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container button {
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: #4CAF50;
+  width: 100%;
+  font-size: 16px;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Login CSS END */
+
+/* Header CSS START */
+.header {
+  position: sticky;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  gap: 31px;
+  justify-content: end;
+  padding: 20px 80px;
+}
+
+.contact,
+.about {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header CSS END */
+
+/* Main CSS START */
+.main {
+  padding: 20px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  gap: 10px;
+}
+
+.list {
+  padding: 20px;
+}
+
+.detaile {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Main CSS END */
+
+/* Footer CSS START */
+.footer {
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+/* Footer CSS END */
