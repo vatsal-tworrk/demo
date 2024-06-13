@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "../../Context/context";
 
 const Login = () => {
     const [form, setForm] = useState({
@@ -6,19 +8,26 @@ const Login = () => {
         Password: "",
     });
 
-    function SubmitData(e) {
+    const { user, setUser } = useContext(AuthContext);
+
+    const SubmitData = (e) => {
         e.preventDefault();
+        setUser(form);
         setForm({
             Email: "",
             Password: "",
         });
-    }
+    };
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
         });
+    };
+
+    if (user) {
+        return <Navigate to="/" state={{ user }} replace={false} />;
     }
 
     return (
@@ -47,6 +56,6 @@ const Login = () => {
             </form>
         </div>
     );
-}
+};
 
 export default Login;

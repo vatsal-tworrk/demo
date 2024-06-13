@@ -14,18 +14,19 @@ import Footer from "./Pages/Footer";
 import NewPost from "./Pages/NewPost";
 import Comments from "./Pages/Comments";
 import Post from "./Pages/Post";
-import Login from "./Pages/Login";
 import './App.css';
-import PrivateRoutes from './utils/PrivateRoutes';
+import Login from "./Pages/Login";
+import { AuthProvider } from "./Context/context";
 
 export default function App() {
   return (
     <div>
-      <Header />
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Main />} >
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
 
@@ -43,39 +44,10 @@ export default function App() {
                 <Route path="comments" element={<Comments />} />
               </Route>
             </Route>
-          </Route>
-        </Routes>
-        <Footer />
-      </Router>
+          </Routes>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
-
-//App.js
-
-// import {
-//   BrowserRouter as Router,
-//   Routes, Route
-// } from 'react-router-dom'
-// import Home from './home';
-// import Login from './Pages/Login/index';
-// import PrivateRoutes from './utils/PrivateRoutes';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Router>
-//         <Routes>
-//           <Route element={<PrivateRoutes />}>
-//             <Route element={<Home />}
-//               path="/" exact />
-//           </Route>
-//           <Route element={<Login />}
-//             path="/login" />
-//         </Routes>
-//       </Router>
-//     </div>
-//   );
-// }
-
-// export default App;

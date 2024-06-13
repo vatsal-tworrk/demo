@@ -7,9 +7,6 @@ const Main = () => {
                 <h1>Book Store</h1>
             </div>
             <div className="category">
-                <Link to="/">
-                    Login
-                </Link>
                 <Link to="/book">
                     Book
                 </Link>
