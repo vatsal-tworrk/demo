@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./Context/context";
 import BookList from "./Component/Book/list";
@@ -17,9 +17,14 @@ import Comments from "./Pages/Comments";
 import Post from "./Pages/Post";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
+import { AuthContext } from "./Context/context";
+import { Navigate } from "react-router-dom";
 import './App.css';
 
 export default function App() {
+
+  // const { user, setUser } = useContext(AuthContext);
+
   return (
     <div>
       <AuthProvider>
@@ -48,6 +53,10 @@ export default function App() {
             </Route>
           </Routes>
           <Footer />
+          {/* {(user.email !== "") ? (<Route element={<Navigate to="/" />} />
+          ) : (
+            <Route element={<Navigate to="/Login" />} />
+          )} */}
         </Router>
       </AuthProvider>
     </div>

@@ -12,10 +12,8 @@ const Login = () => {
 
     useEffect(() => {
         const store = sessionStorage.getItem("user");
-        if (store) {
-            setUser(JSON.parse(store));
-        }
-    }, [setUser]);
+        setUser(JSON.parse(store));
+    }, []);
 
     const SubmitData = (e) => {
         e.preventDefault();

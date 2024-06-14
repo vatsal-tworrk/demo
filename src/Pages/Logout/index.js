@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/context";
 
@@ -7,12 +7,10 @@ const Logout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user) {
-            setUser(null);
-            sessionStorage.removeItem("user");
-            navigate("/login");
-        }
-    }, []);
+        setUser(null);
+        sessionStorage.removeItem("user");
+        navigate("/login");
+    }, [setUser]);
 
 };
 
