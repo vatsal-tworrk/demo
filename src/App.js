@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./Context/context";
 import BookList from "./Component/Book/list";
 import Bookdetailes from "./Component/Book/detailes";
 import Stationerylist from "./Component/Stationery/list";
@@ -14,9 +15,9 @@ import Footer from "./Pages/Footer";
 import NewPost from "./Pages/NewPost";
 import Comments from "./Pages/Comments";
 import Post from "./Pages/Post";
-import './App.css';
 import Login from "./Pages/Login";
-import { AuthProvider } from "./Context/context";
+import Logout from "./Pages/Logout";
+import './App.css';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
 

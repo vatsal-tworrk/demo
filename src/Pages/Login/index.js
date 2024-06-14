@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../../Context/context";
 
@@ -10,9 +10,17 @@ const Login = () => {
 
     const { user, setUser } = useContext(AuthContext);
 
+    useEffect(() => {
+        const store = sessionStorage.getItem("user");
+        if (store) {
+            setUser(JSON.parse(store));
+        }
+    }, [setUser]);
+
     const SubmitData = (e) => {
         e.preventDefault();
         setUser(form);
+        sessionStorage.setItem("user", JSON.stringify(form));
         setForm({
             Email: "",
             Password: "",
