@@ -12,7 +12,9 @@ const Login = () => {
 
     useEffect(() => {
         const store = sessionStorage.getItem("user");
-        setUser(JSON.parse(store));
+        if (user) {
+            setUser(JSON.parse(store));
+        }
     }, []);
 
     const SubmitData = (e) => {

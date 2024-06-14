@@ -17,13 +17,10 @@ import Comments from "./Pages/Comments";
 import Post from "./Pages/Post";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
-import { AuthContext } from "./Context/context";
-import { Navigate } from "react-router-dom";
+import ProtectedRoute from "./Context/protectedroute";
 import './App.css';
 
 export default function App() {
-
-  // const { user, setUser } = useContext(AuthContext);
 
   return (
     <div>
@@ -31,11 +28,13 @@ export default function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path="/" element={<Main />} />
+
+            <Route path="/" element={<ProtectedRoute><Main /></ProtectedRoute>} />
+            <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+            <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+            
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
 
             <Route path="/book" element={<BookList />} />
             <Route path="/book/:id" element={<Bookdetailes />} />
@@ -53,10 +52,6 @@ export default function App() {
             </Route>
           </Routes>
           <Footer />
-          {/* {(user.email !== "") ? (<Route element={<Navigate to="/" />} />
-          ) : (
-            <Route element={<Navigate to="/Login" />} />
-          )} */}
         </Router>
       </AuthProvider>
     </div>
